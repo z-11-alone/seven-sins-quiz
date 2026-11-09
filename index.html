@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100D0A">
+<title>七宗罪分布测试｜二十一道题，画出你的刻盘</title>
+<meta name="description" content="二十一道生活化的题，把傲慢、嫉妒、暴怒、懒惰、贪婪、暴食、色欲摊成一张七轴刻盘，并给出结构解读。仅供娱乐。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23100D0A'/%3E%3Cpolygon points='16,4 25.4,8.5 27.7,18.7 21.2,26.8 10.8,26.8 4.3,18.7 6.6,8.5' fill='none' stroke='%23C69A52' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%23C69A52'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#100D0A;
+  --ink2:#171310;
+  --panel:#1C1714;
+  --paper:#EFE7DA;
+  --dim:#A79B8D;
+  --dim2:#786E65;
+  --brass:#C69A52;
+  --brass-hi:#DFB877;
+  --brass-soft:rgba(198,154,82,.12);
+  --blood:#9E3B34;
+  --line:rgba(239,231,218,.12);
+  --line-soft:rgba(239,231,218,.07);
+  --serif:"Songti SC","Noto Serif SC","Source Han Serif SC","SimSun",Georgia,serif;
+  --sans:"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:var(--sans);font-size:16px;line-height:1.72;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 78% -14%, rgba(198,154,82,.10), rgba(198,154,82,0) 60%),
+    radial-gradient(85% 60% at -10% 108%, rgba(158,59,52,.08), rgba(158,59,52,0) 62%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,p,ul{margin:0}
+button{font-family:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+.view{display:none;position:relative;z-index:1}
+.view.active{display:block;animation:viewIn .38s ease both}
+@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.seal{
+  width:38px;height:38px;border:1px solid rgba(198,154,82,.55);border-radius:2px;
+  display:grid;place-items:center;font-family:var(--serif);font-size:19px;color:var(--brass);
+  flex:0 0 auto;
+}
+.seal.sm{width:30px;height:30px;font-size:15px;border-color:rgba(198,154,82,.4)}
+
+.btn{
+  appearance:none;border:1px solid var(--brass);background:var(--brass);color:#181310;
+  font-size:15px;letter-spacing:.16em;height:54px;padding:0 32px;border-radius:2px;
+  cursor:pointer;transition:background .18s ease,border-color .18s ease,transform .18s ease,box-shadow .25s ease;
+}
+.btn:hover{background:var(--brass-hi);border-color:var(--brass-hi);box-shadow:0 0 0 4px rgba(198,154,82,.09)}
+.btn:active{transform:translateY(1px)}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(239,231,218,.26);letter-spacing:.12em}
+.btn-ghost:hover{background:rgba(239,231,218,.05);border-color:rgba(239,231,218,.48);color:var(--paper);box-shadow:none}
+.btn-quiet{appearance:none;border:0;background:none;color:var(--dim);font-size:13.5px;letter-spacing:.06em;padding:10px 2px;cursor:pointer;transition:color .18s ease}
+.btn-quiet:hover{color:var(--brass-hi)}
+
+/* ================= 首页 ================= */
+.hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:48px 0 40px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,transparent calc(33.33% - .5px),rgba(239,231,218,.05) 33.33%,transparent calc(33.33% + .5px)),
+    linear-gradient(90deg,transparent calc(66.66% - .5px),rgba(239,231,218,.05) 66.66%,transparent calc(66.66% + .5px));
+}
+.hero-grid{display:flex;flex-direction:column;gap:30px;width:100%;position:relative;z-index:2}
+.brandline{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.brandline span{font-size:11.5px;letter-spacing:.3em;color:var(--dim2)}
+.hero-title{font-family:var(--serif);font-weight:600;line-height:.92;font-size:clamp(56px,16.5vw,124px);letter-spacing:.04em}
+.hero-title em{
+  display:block;font-style:normal;font-weight:400;
+  font-size:clamp(18px,4.2vw,32px);letter-spacing:.36em;color:var(--brass);margin-top:18px;margin-left:.06em;
+}
+.hero-rule{width:64px;height:1px;background:var(--brass);opacity:.75;margin:28px 0 22px}
+.hero-lede{color:#D2C8BA;max-width:29em;font-size:15.5px;line-height:1.9}
+.hero-lede strong{font-weight:500;color:var(--paper);border-bottom:1px solid rgba(198,154,82,.5);padding-bottom:1px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin:24px 0 30px;color:var(--dim2);font-size:12.5px;letter-spacing:.08em}
+.hero-meta span+span{border-left:1px solid var(--line);padding-left:18px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.hero-stat{margin-top:26px;color:var(--dim2);font-size:12.5px;letter-spacing:.05em;min-height:1em}
+.hero-art{position:relative}
+.hero-art svg{display:block;width:100%;max-width:470px;height:auto;margin:0 auto;overflow:visible}
+.rosette-label{
+  font-family:var(--serif);font-size:16px;letter-spacing:.1em;
+  fill:rgba(239,231,218,.55);transition:fill .2s ease,opacity .2s ease;
+}
+.rosette-label.hot{fill:var(--brass-hi)}
+.rosette-center{font-family:var(--serif);font-size:13px;letter-spacing:.24em;fill:rgba(198,154,82,.5)}
+.rosette-hint{font-size:10.5px;letter-spacing:.1em;fill:rgba(239,231,218,.28)}
+
+/* 七个维度索引 */
+.index{padding:58px 0 20px;border-top:1px solid var(--line)}
+.index-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 20px;margin-bottom:8px}
+.index-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(24px,5vw,36px);letter-spacing:.06em}
+.index-head p{color:var(--dim2);font-size:13px;letter-spacing:.04em}
+.idx-row{
+  display:grid;grid-template-columns:30px 1fr;gap:4px 14px;align-items:baseline;
+  padding:17px 0;border-bottom:1px solid var(--line-soft);transition:background .2s ease;
+}
+.idx-row:hover{background:rgba(198,154,82,.04)}
+.idx-n{font-family:var(--serif);font-size:12px;color:var(--dim2);letter-spacing:.05em}
+.idx-main{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.idx-name{font-family:var(--serif);font-size:21px;letter-spacing:.12em}
+.idx-tag{font-size:11.5px;color:var(--brass);letter-spacing:.12em}
+.idx-desc{grid-column:2;color:var(--dim);font-size:13.5px;line-height:1.78;max-width:46em}
+.home-foot{padding:34px 0 56px;color:var(--dim2);font-size:12px;line-height:1.85;letter-spacing:.03em;max-width:48em}
+
+/* ================= 答题 ================= */
+.quiz{padding:22px 0 56px;min-height:100svh;display:flex;flex-direction:column}
+.quiz-inner{width:100%;max-width:880px;margin:0 auto;padding:0 22px;display:flex;flex-direction:column;flex:1}
+.quiz-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:4px 0 14px}
+.quiz-head .left{display:flex;align-items:center;gap:12px;min-width:0}
+.quiz-count{font-family:var(--serif);font-size:13.5px;color:var(--dim);letter-spacing:.14em;font-variant-numeric:tabular-nums}
+.ticks{display:flex;gap:3px;height:3px}
+.ticks i{flex:1;background:rgba(239,231,218,.1);transition:background .25s ease;transform-origin:center}
+.ticks i.on{background:rgba(198,154,82,.9)}
+.ticks i.now{background:rgba(198,154,82,.5);animation:tickPulse 1.6s ease-in-out infinite}
+@keyframes tickPulse{0%,100%{opacity:.4}50%{opacity:1}}
+.mini{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+.mini canvas{display:block;width:74px;height:74px}
+.mini span{font-size:10.5px;color:var(--dim2);letter-spacing:.1em;line-height:1.5;text-align:right}
+.q-text{
+  font-family:var(--serif);font-weight:500;letter-spacing:.02em;
+  font-size:clamp(21px,4.4vw,31px);line-height:1.52;margin:36px 0 8px;max-width:26em;
+}
+.q-note{color:var(--dim2);font-size:12px;letter-spacing:.06em;margin-bottom:24px}
+.opts{display:flex;flex-direction:column;border-top:1px solid rgba(239,231,218,.1)}
+.opt{
+  display:flex;align-items:center;gap:14px;width:100%;min-height:62px;padding:14px 12px;
+  background:transparent;border:0;border-bottom:1px solid rgba(239,231,218,.1);
+  color:var(--paper);font-size:15.5px;line-height:1.5;text-align:left;cursor:pointer;
+  transition:background .16s ease,padding-left .16s ease;
+  animation:optIn .3s ease both;
+}
+.opt:hover{background:rgba(198,154,82,.07);padding-left:16px}
+.opt:active{background:rgba(198,154,82,.13)}
+.opt .dots{display:flex;gap:4px;flex:0 0 auto}
+.opt .dots b{width:6px;height:6px;border-radius:50%;border:1px solid rgba(198,154,82,.55);display:block}
+.opt .dots b.f{background:var(--brass);border-color:var(--brass)}
+.opt .t{flex:1;min-width:0}
+.opt .hz{font-family:var(--serif);font-size:13px;color:var(--dim2);letter-spacing:.06em;flex:0 0 auto}
+.opt.sel{background:rgba(198,154,82,.12)}
+.opt.sel .hz{color:var(--brass-hi)}
+.opt:nth-child(1){animation-delay:0ms}
+.opt:nth-child(2){animation-delay:45ms}
+.opt:nth-child(3){animation-delay:90ms}
+.opt:nth-child(4){animation-delay:135ms}
+@keyframes optIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.quiz-foot{margin-top:auto;padding-top:26px;color:var(--dim2);font-size:11.5px;letter-spacing:.06em}
+
+/* ================= 结果 ================= */
+.result{padding:40px 0 60px}
+.res-inner{width:100%;max-width:940px;margin:0 auto;padding:0 22px}
+.res-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:26px}
+.res-top .tag{font-size:11.5px;color:var(--dim2);letter-spacing:.16em}
+.res-head{padding:0 0 4px}
+.res-eye{font-size:11.5px;color:var(--dim2);letter-spacing:.24em;display:flex;align-items:center;gap:10px}
+.res-eye::before{content:"";width:26px;height:1px;background:rgba(198,154,82,.6);display:block}
+.res-name{
+  font-family:var(--serif);font-weight:600;letter-spacing:.06em;line-height:1.08;
+  font-size:clamp(40px,10.5vw,72px);margin:16px 0 14px;
+}
+.res-name.long{font-size:clamp(26px,6.6vw,46px);letter-spacing:.04em;line-height:1.2}
+.res-sub{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;font-size:13px;color:var(--dim)}
+.res-sub b{font-family:var(--serif);font-weight:500;color:var(--brass-hi);letter-spacing:.1em;font-size:15px}
+.res-sub span{color:var(--dim2)}
+.radar-box{max-width:520px;margin:26px auto 4px;position:relative}
+.radar-box canvas{display:block;width:100%;height:auto}
+.radar-hint{text-align:center;color:var(--dim2);font-size:11.5px;letter-spacing:.08em;margin-bottom:6px}
+
+.sec{margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
+.sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.sec-h h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.14em}
+.sec-h i{font-family:var(--serif);font-style:normal;font-size:11.5px;color:var(--dim2);letter-spacing:.1em}
+.sec p{color:#CFC5B7;font-size:15px;line-height:1.92;max-width:40em}
+.sec p+p{margin-top:12px}
+
+.ledger{border-top:1px solid var(--line)}
+.led-row{
+  display:grid;grid-template-columns:26px 1fr 44px;grid-template-areas:"rk nm lv" "rk cells sc";
+  gap:5px 12px;align-items:center;padding:15px 4px;border-bottom:1px solid var(--line-soft);
+  cursor:pointer;transition:background .18s ease;
+}
+.led-row:hover,.led-row.on{background:rgba(198,154,82,.055)}
+.led-rk{grid-area:rk;font-family:var(--serif);font-size:12px;color:var(--dim2);font-variant-numeric:tabular-nums}
+.led-nm{grid-area:nm;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;font-family:var(--serif);font-size:19px;letter-spacing:.1em;min-width:0}
+.led-nm em{font-style:normal;font-family:var(--sans);font-size:11px;letter-spacing:.09em;color:var(--brass);opacity:.9}
+.led-lv{grid-area:lv;text-align:right;font-size:10.5px;color:var(--dim2);letter-spacing:.1em}
+.led-cells{grid-area:cells;display:flex;gap:3px;align-items:center}
+.led-cells i{flex:1;height:5px;background:rgba(239,231,218,.1);border-radius:1px;transition:background .3s ease}
+.led-cells i.on{background:rgba(198,154,82,.8)}
+.led-sc{grid-area:sc;text-align:right;font-family:var(--serif);font-size:16px;color:var(--paper);font-variant-numeric:tabular-nums}
+.led-row.top .led-sc,.led-row.top .led-lv{color:var(--brass-hi)}
+.led-row.top .led-cells i.on{background:var(--brass-hi)}
+
+.detail{margin-top:18px;padding:20px 0 4px;border-top:1px solid rgba(198,154,82,.45);display:none}
+.detail.show{display:block;animation:optIn .3s ease both}
+.detail h4{font-family:var(--serif);font-weight:500;font-size:15px;letter-spacing:.12em;color:var(--brass-hi);margin-bottom:8px}
+.detail p{font-size:14px;color:#CFC5B7;line-height:1.9;max-width:42em}
+.detail .kv{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--dim2)}
+.detail .kv b{color:var(--dim);font-weight:400}
+
+.three{display:flex;flex-direction:column;gap:22px}
+.block{padding:22px 0 0;border-top:1px solid var(--line-soft)}
+.block h4{font-family:var(--serif);font-weight:500;font-size:15.5px;letter-spacing:.14em;margin-bottom:10px;display:flex;align-items:baseline;gap:10px}
+.block h4 span{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;color:var(--dim2)}
+.block p{font-size:14.5px;line-height:1.9;color:#CFC5B7;max-width:42em}
+.block .mark{color:var(--brass);font-family:var(--serif);font-size:14px;margin-right:2px}
+
+.tips{margin-top:6px}
+.tip{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:15px 0;border-bottom:1px solid var(--line-soft)}
+.tip b{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.tip p{font-size:14px;line-height:1.85;color:#CFC5B7;margin:0;max-width:40em}
+.tip p span{color:var(--dim2);font-size:12.5px;display:block;margin-top:2px}
+
+details.more{margin-top:38px;border-top:1px solid var(--line);padding-top:20px}
+details.more summary{cursor:pointer;color:var(--dim);font-size:13px;letter-spacing:.1em;list-style:none;display:flex;align-items:center;gap:10px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary:hover{color:var(--brass-hi)}
+details.more summary .pm{font-family:var(--serif);color:var(--brass);font-size:15px}
+.more-list{margin-top:22px;display:flex;flex-direction:column;gap:26px}
+.more-item{padding-top:18px;border-top:1px solid var(--line-soft)}
+.more-item .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.more-item h4{font-family:var(--serif);font-weight:500;font-size:17px;letter-spacing:.12em}
+.more-item .lvs{font-size:11px;color:var(--dim2);letter-spacing:.1em}
+.more-item .lvs b{color:var(--brass);font-weight:500}
+.more-item p{font-size:13.5px;line-height:1.88;color:var(--dim);max-width:44em}
+.more-item .shadow{font-size:12.5px;color:var(--dim2);margin-top:6px}
+.more-item .shadow b{color:#B9AC9D;font-weight:400}
+
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:40px 0 0}
+.res-foot{margin-top:30px;color:var(--dim2);font-size:11.5px;line-height:1.9;letter-spacing:.03em;max-width:44em}
+
+.toast{
+  position:fixed;left:50%;bottom:32px;transform:translate(-50%,14px);
+  background:#241E19;border:1px solid rgba(198,154,82,.4);color:var(--paper);
+  font-size:13px;letter-spacing:.05em;padding:11px 18px;border-radius:2px;
+  opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;z-index:90;max-width:82vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:768px){
+  .wrap,.quiz-inner,.res-inner{padding:0 44px}
+  .hero{padding:56px 0}
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:40px}
+  .idx-row{grid-template-columns:44px 200px 1fr;align-items:baseline}
+  .idx-desc{grid-column:3;font-size:13.5px}
+  .q-text{margin:48px 0 10px}
+  .opt{font-size:16px;padding:16px 14px;min-height:66px}
+  .mini canvas{width:96px;height:96px}
+  .led-row{grid-template-columns:40px minmax(0,1fr) 84px 56px;grid-template-areas:"rk nm lv sc" "rk cells cells sc";gap:6px 16px}
+  .led-lv{grid-area:lv;text-align:right;font-size:11px}
+  .led-cells{grid-area:cells}
+  .res-name{font-size:clamp(52px,7vw,74px)}
+  .three{gap:26px}
+  .tip{grid-template-columns:34px 1fr}
+}
+@media (min-width:1100px){
+  .hero-grid{gap:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .view.active{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 视图：首页 ========== -->
+<section class="view active" id="v-home">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="brandline"><div class="seal sm">七</div><span>分布 · 二十一道题</span></div>
+          <h1 class="hero-title">七宗罪<em>分布测试</em></h1>
+          <div class="hero-rule"></div>
+          <p class="hero-lede">傲慢、嫉妒、暴怒、懒惰、贪婪、暴食、色欲——七个词听起来像判决，其实只是七种常见的<strong>反应方式</strong>。二十一道生活里的题，把它们摊开成一枚刻盘，看清你被哪几股劲推着走。</p>
+          <div class="hero-meta">
+            <span>二十一道题</span><span>约三分钟</span><span>七个维度</span><span>四级频率</span>
+          </div>
+          <div class="hero-actions">
+            <button class="btn" id="btn-start" type="button">开始刻盘</button>
+            <button class="btn btn-ghost" id="btn-last" type="button" hidden>查看上次结果</button>
+          </div>
+          <p class="hero-stat" id="hero-stat"></p>
+        </div>
+        <div class="hero-art">
+          <div id="rosette"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="index">
+      <div class="index-head">
+        <h2>七个维度</h2>
+        <p>分数不衡量好坏，只描述你的倾斜方向</p>
+      </div>
+      <div id="index-list"></div>
+      <p class="home-foot">量表说明：每个维度三道题，每题「几乎不会 / 偶尔 / 经常 / 几乎总是」记 0–3 分，单维满分 9 分。本测试借用七宗罪的框架描述性格偏好，不是道德判断，也不构成心理诊断，结果仅供娱乐。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 视图：答题 ========== -->
+<section class="view" id="v-quiz">
+  <div class="quiz">
+    <div class="quiz-inner">
+      <div class="quiz-head">
+        <div class="left">
+          <button class="btn-quiet" id="btn-back" type="button">退出</button>
+          <span class="quiz-count" id="q-count">01 / 21</span>
+        </div>
+        <div class="mini">
+          <span id="mini-tip">刻盘<br>生长中</span>
+          <canvas id="mini" width="74" height="74" aria-label="实时刻盘"></canvas>
+        </div>
+      </div>
+      <div class="ticks" id="ticks" aria-hidden="true"></div>
+      <h2 class="q-text" id="q-text" aria-live="polite"></h2>
+      <p class="q-note">按你最近半年的真实情况回答，不必挑好听的那个</p>
+      <div class="opts" id="opts" role="group" aria-labelledby="q-text"></div>
+      <p class="quiz-foot">键盘可按 1–4 快速作答，方向键 ← 返回上一题</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 视图：结果 ========== -->
+<section class="view" id="v-result">
+  <div class="result">
+    <div class="res-inner">
+      <div class="res-top">
+        <div class="seal sm">七</div>
+        <span class="tag" id="res-top-tag">刻盘 · 已完成</span>
+      </div>
+      <div class="res-head">
+        <p class="res-eye">你的人格刻盘</p>
+        <h2 class="res-name" id="res-name">—</h2>
+        <div class="res-sub" id="res-sub"></div>
+      </div>
+
+      <div class="radar-box"><canvas id="radar" width="520" height="520" aria-label="七宗罪分布雷达图"></canvas></div>
+      <p class="radar-hint">点击下方任一行，刻盘会高亮对应维度</p>
+
+      <div class="sec">
+        <div class="sec-h"><h3>你的形状</h3><i>SHAPE</i></div>
+        <div id="structure"></div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><h3>七维读数</h3><i>READING</i></div>
+        <div class="ledger" id="ledger"></div>
+        <div class="detail" id="detail"></div>
+      </div>
+
+      <div class="sec" id="sec-deep">
+        <div class="sec-h"><h3 id="h-deep">主导项详解</h3><i>DEEP DIVE</i></div>
+        <div class="three" id="deep"></div>
+      </div>
+
+      <div class="sec" id="sec-second">
+        <div class="sec-h"><h3 id="h-second">次主导</h3><i>SECOND</i></div>
+        <div id="second"></div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><h3>三条调整建议</h3><i>ADJUST</i></div>
+        <div class="tips" id="tips"></div>
+      </div>
+
+      <details class="more">
+        <summary><span class="pm">＋</span>七维完整读法（含你所在档位）</summary>
+        <div class="more-list" id="more-list"></div>
+      </details>
+
+      <div class="actions">
+        <button class="btn" id="btn-save" type="button">保存这张刻盘</button>
+        <button class="btn btn-ghost" id="btn-copy" type="button">复制结果文案</button>
+        <button class="btn-quiet" id="btn-again" type="button">再测一次</button>
+      </div>
+      <p class="res-foot">本测试借用七宗罪的框架描述性格偏好，不是道德判断，也不构成心理诊断。结果反映的是你此刻的自我描述，会随处境变化，仅供娱乐。</p>
+    </div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= 数据 ================= */
+var DIMS = [
+  {
+    n:'傲慢', tag:'骄傲倾向', axis:'defend',
+    lv:{
+      low:{name:'静水般的自信', read:'你不太需要靠「比别人强」来确认自己。被指出问题时，你更在意事情本身对不对，而不是面子。别人容易把这种状态读成好说话，其实是你对评价的依赖很低。'},
+      mid:{name:'有棱角的自尊', read:'你对自己有清楚的评价，不太容易被一句否定动摇，但被质疑时也确实会先绷一下。你的自信是有边界的：熟的地方很稳，不熟的地方会先退半步观察，再决定要不要争。'},
+      high:{name:'不肯低头的王', read:'你对自己判断的信任，常常超过对证据的信任。被否定时，第一反应是捍卫，而不是核对。这让你在需要拍板、需要顶住压力的场合格外可靠；代价是很难真正听见反对意见——你会把建议听成挑战。'}
+    },
+    gift:'在没人敢担责的时候，你能替所有人把决定做掉。',
+    cost:'长期只听得进赞同的声音，会慢慢失去纠错的能力。',
+    tip:'下次被指出问题时，先接一句「你说得有道理，我再看一下」，再决定要不要反驳——把顺序倒过来，你会听到更多。',
+    shadow:'不太争的人，容易在需要被看见的场合被略过。'
+  },
+  {
+    n:'嫉妒', tag:'慕强对比', axis:'defend',
+    lv:{
+      low:{name:'少比的人', read:'你很少把别人的进度当成自己的尺子。别人好，你能真心替对方高兴，也不太容易被「被落下」的感觉追着跑。你的动力更多来自自己想做什么，而不是别人已经做了什么。'},
+      mid:{name:'暗暗较劲', read:'你不说，但你一直在比。你会记得谁比你早升职、谁先安定下来，然后把这些变成往前推的燃料——也变成某些睡不着的理由。这种比较是隐形的，只有在特别累的时候才会露出来。'},
+      high:{name:'永远在对照的人', read:'你的注意力有很大一块放在别人身上。别人的好消息会先刺痛你一下，你才反应过来该恭喜。这不是坏心，是你太想确认自己够不够好。代价是：你的节奏永远由别人的进度决定，你很难有「我到了」的时刻。'}
+    },
+    gift:'你能精准看出一个人强在哪、值不值得学，这是一副很好用的雷达。',
+    cost:'拿别人的时间表衡量自己，会让你一直处在「还没到位」的状态。',
+    tip:'把「我羡慕谁」写下来，然后问一句：我想要的是那件事，还是那个人被看见的感觉。答案不一样，做法就完全不同。',
+    shadow:'不太比较的人，有时会漏掉「原来还可以这样」的参照。'
+  },
+  {
+    n:'暴怒', tag:'情绪急敏', axis:'defend',
+    lv:{
+      low:{name:'慢热钝感', read:'你的情绪启动得慢，很多冒犯在你这里会自动滑过去。别人以为你脾气好，其实多数时候是你懒得计较。这让你在冲突里很稳，但也可能让一些真正该说的事一直没说。'},
+      mid:{name:'收放有度', read:'你有清楚的边界，被踩到会立刻有反应，但多数时候还能把话说完。你不是没脾气，是知道对谁发、发到几分。偶尔失控之后，你会比自己以为的更在意。'},
+      high:{name:'一点就着', read:'你的情绪反应比理智快半拍：语气先冲，脑子后到。事后你常常后悔——不是后悔生气，是后悔没把话说清楚。代价是你说的话会被情绪打折，本来站得住的观点，也会输在语气上。'}
+    },
+    gift:'你从不假装没事，别人跟你相处不用猜。',
+    cost:'别人记住的是你发火的形状，而不是你发火的原因。',
+    tip:'把「我现在有点上头，给我十分钟」练成一句随时能说的话。它比忍，比爆发，都更省事。',
+    shadow:'太钝的人，边界被越过了，也不一定当场知道。'
+  },
+  {
+    n:'懒惰', tag:'松弛躺平', axis:'retreat',
+    lv:{
+      low:{name:'推进者', read:'你不太容易陷进「等等再说」。事情在你手上会往前走，你也不怎么需要外力催。你对完成的渴望高于对舒适的渴望，这让你在长周期的事情上占优势。'},
+      mid:{name:'选择性省力', read:'你不是懒，你是会算。你把力气留给真正在意的事，其余的一律用最低成本处理。这套策略很聪明，代价是：有些机会就是在「先放着」里慢慢过期的，而你当时以为它不重要。'},
+      high:{name:'彻底躺平', read:'你对「省力」的偏好，已经超过了对结果的渴望。你会用整晚准备一件十分钟能做完的事，或者在开始前先把自己说服放弃。这不只是懒——很多时候是怕做不好，所以干脆不做，这样就不用面对结果。'}
+    },
+    gift:'你有很强的自我保护能力，不会把自己耗死在无意义的事情上。',
+    cost:'拖延真正消耗的不是时间，是每天惦记它的那点力气。',
+    tip:'把任务砍到「两分钟就能开始」的尺寸：不是做完，只是开始。开始之后的阻力，比开始之前小得多。',
+    shadow:'不太躺的人，容易把「休息」也做成一个要完成的任务。'
+  },
+  {
+    n:'贪婪', tag:'进取渴求', axis:'seek',
+    lv:{
+      low:{name:'够用就好', read:'你对「更多」没有执念。够用、舒服、不折腾，比多一倍更重要。你不太会被「别人都在囤」带着跑，也因此少了很多焦虑——代价是偶尔会在还能再争一次的时候，先收了手。'},
+      mid:{name:'永远想多一点', read:'你习惯多留一手：多存一点、多备一个方案、多认识几个人。这让你在变化里比别人稳，但也让你很难真正停下来享受已经拥有的，因为手里总还有下一个要够的东西。'},
+      high:{name:'填不满的仓', read:'你要的不是某一样东西，是「还有很多」的状态。得到之后，快乐很短，下一个目标立刻补位。你很少有空的时候——空会让你不安。所以你把时间表填满，把收藏夹填满，把胃填满。'}
+    },
+    gift:'你永远在往前够，比别人更早闻到机会的味道。',
+    cost:'「还不够」是一种会跟着你很久的感觉，它不会因为下一个目标达成就消失。',
+    tip:'每个月挑一件已经拥有的东西，认真用一次，不添新的。你会发现有些「想要」，其实只是没被好好用过。',
+    shadow:'够用就好的人，可能在还能再争一次的时候先收了手。'
+  },
+  {
+    n:'暴食', tag:'感官享乐', axis:'seek',
+    lv:{
+      low:{name:'清淡口味', read:'你不太需要用吃喝来调节情绪。饿就吃，饱就停，快乐不太依赖感官。这让你在失控面前很稳，但也意味着你少了一个很便宜、很及时的情绪出口。'},
+      mid:{name:'偶尔放纵', read:'你有自己的小出口：难过时一顿好的，加班后一袋零食。它确实管用。只是偶尔你会察觉，自己是在用嘴填一件跟吃无关的事——那种饱，跟饿没关系。'},
+      high:{name:'用快乐填空', read:'你很容易用即时的东西把自己填满：吃的、刷的、买的。一停下来，那种空就立刻回来。代价是快乐越来越短，剂量越来越大，而真正让你空的那件事，一直没被处理。'}
+    },
+    gift:'你非常懂得在当下取悦自己，这是很多人缺的能力。',
+    cost:'用刺激盖住的情绪不会消失，只会在你停下来的那一刻全部回来。',
+    tip:'下次伸手去拿的时候，先停十秒，问自己一句：我是饿，还是只是难受。十秒之后你还是想拿，那就拿——但你会知道自己在做什么。',
+    shadow:'不太靠感官的人，日子稳，但少了点意外的甜。'
+  },
+  {
+    n:'色欲', tag:'心动易感', axis:'seek',
+    lv:{
+      low:{name:'迟钝的美感', read:'你不太会被外表或氛围带走。好看是好看，但不太影响你的判断和注意力。你更在意一个人说了什么、做了什么，而不是他出现时的光。'},
+      mid:{name:'氛围体质', read:'你对好看的人和场景有明确的偏好，也愿意为它花时间花钱。它给你的生活加了不少颜色，偶尔也会让你在该专注的时候走神。你分得清喜欢和需要，但不太总是。'},
+      high:{name:'为心动活', read:'你很容易被一个瞬间击中：一个侧脸、一句语气、一段光。心动对你来说几乎是生理反应。这让你对美极其敏感，也让你很难在心动面前保持理性——你会替一个只见过两面的人，找很多理由。'}
+    },
+    gift:'你对美的感知力很强，这是审美和创造力的来源。',
+    cost:'把心动误当成了解，是很多麻烦的开头。',
+    tip:'心动的时候先别下结论，给自己三天，再看你还想不想。真正的喜欢经得起三天，冲动通常不行。',
+    shadow:'不太被美打动的人，日子稳，但少了点意外的心动。'
+  }
+];
+
+/* 21 题：d 为维度序号，t 为题面 */
+var QUESTIONS = [
+  {d:3, t:'没人催的事，你会一直往后放。'},
+  {d:0, t:'别人指出你的问题时，你会先解释自己为什么这么做，而不是先承认。'},
+  {d:1, t:'刷到同龄人升职、旅行、恋爱顺利，你会停下来反复看那几条。'},
+  {d:5, t:'情绪不好的时候，你会用吃、刷、买把自己填满。'},
+  {d:2, t:'被打断、被插队、计划被临时改动时，你的语气会先变。'},
+  {d:4, t:'你很难对「更多」说不——更多的钱、机会、选择。'},
+  {d:6, t:'你很容易被一个人的长相、声音，或某个瞬间击中。'},
+  {d:0, t:'在你有把握的领域，你很难耐心听完一个外行的建议。'},
+  {d:3, t:'为了避免麻烦，你会选一个更省事、但并不更好的方案。'},
+  {d:5, t:'你经常吃到超过饱的程度。'},
+  {d:1, t:'朋友的好消息，你第一秒心里会闪过一句「为什么不是我」。'},
+  {d:2, t:'一件让你不痛快的小事，你会在心里反复回放，越想越气。'},
+  {d:6, t:'你会为氛围感买单——灯光、音乐、场景，说不清值不值。'},
+  {d:4, t:'得到之后，你很快就开始想下一个。'},
+  {d:0, t:'你宁愿自己扛到很晚，也不愿意开口请人帮忙。'},
+  {d:3, t:'你在「准备开始」上花的时间，常常比真正做事还多。'},
+  {d:1, t:'你会默默记住身边人的进度，并在心里给自己排名。'},
+  {d:5, t:'闲下来的时候，你会找点东西吃，哪怕并不饿。'},
+  {d:2, t:'生气之后，你很难马上装作什么都没发生。'},
+  {d:4, t:'你囤着一些用不上的东西，只因为「以后可能用得着」。'},
+  {d:6, t:'正事做到一半，注意力会被好看的人或画面带走。'}
+];
+
+var SCALE = [
+  {t:'几乎不会', h:'几乎没有', v:0},
+  {t:'偶尔', h:'一个月几次', v:1},
+  {t:'经常', h:'每周都有', v:2},
+  {t:'几乎总是', h:'基本每次', v:3}
+];
+
+/* ================= 基础 ================= */
+var $ = function(id){ return document.getElementById(id); };
+var SERIF = '"Songti SC","Noto Serif SC","Source Han Serif SC","SimSun",Georgia,serif';
+var SANS = '"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",system-ui,sans-serif';
+var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var KEY = 'sins-radar-v2';
+var BLIND = [
+  '在需要被看见的场合，试着把「这是我做的」说出口，不用等别人替你说。',
+  '偶尔允许自己羡慕一次，把它当成信息——它其实在告诉你还想要什么。',
+  '下一次明明不舒服、却笑着说没事的时候，试着补一句「这个我不太接受」。',
+  '把休息真正写进日程，而不是等到撑不住了才停。',
+  '遇到真正想要的东西，试着多要一次，不必先替对方考虑。',
+  '给自己留一个不解决问题的快乐：一段音乐、一顿好饭，不为任何目的。',
+  '偶尔停下来看看好看的东西，不为了有用。'
+];
+
+var state = {i:0, answers:[]};
+var SCORES = [0,0,0,0,0,0,0];
+var RESULT = null;
+var HL = -1;
+var locked = false;
+var toastTimer = null;
+var totalItems = QUESTIONS.length;
+
+function pad2(n){ return (n < 10 ? '0' : '') + n; }
+function levelOf(v){ return v <= 3 ? 'low' : (v <= 6 ? 'mid' : 'high'); }
+function levelText(v){ return v <= 3 ? '低' : (v <= 6 ? '中' : '高'); }
+function toast(msg){
+  var t = $('toast'); t.textContent = msg; t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('on'); }, 2000);
+}
+var views = {home:$('v-home'), quiz:$('v-quiz'), result:$('v-result')};
+function show(name){
+  for(var k in views) views[k].classList.toggle('active', k === name);
+  window.scrollTo(0,0);
+}
+function nav(name){
+  if(history.replaceState) history.replaceState(null,'','#' + name);
+  show(name);
+  if(name === 'result') enterResult();
+  if(name === 'home') enterHome();
+}
+
+/* ================= 首页刻盘 ================= */
+var ROS_C = 0;
+function buildRosette(){
+  var S = 440, c = S/2, R = 146, out = '', i, a;
+  ROS_C = c;
+  out += '<svg viewBox="0 0 ' + S + ' ' + S + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="七维刻盘">';
+  out += '<circle cx="' + c + '" cy="' + c + '" r="' + (R*1.36) + '" fill="none" stroke="rgba(239,231,218,.06)"/>';
+  out += '<g id="spin-ring">';
+  for(i = 0;i < 56;i++){
+    a = i*Math.PI*2/56;
+    var r1 = R*1.13, r2 = R*1.13 + (i%4 === 0 ? 13 : 5);
+    out += '<line x1="' + (c+Math.cos(a)*r1).toFixed(1) + '" y1="' + (c+Math.sin(a)*r1).toFixed(1) +
+           '" x2="' + (c+Math.cos(a)*r2).toFixed(1) + '" y2="' + (c+Math.sin(a)*r2).toFixed(1) +
+           '" stroke="rgba(198,154,82,.22)"/>';
+  }
+  out += '</g>';
+  for(var k = 1;k <= 3;k++){
+    var rr = R*k/3;
+    out += '<polygon points="';
+    for(i = 0;i < 7;i++){
+      a = -Math.PI/2 + i*Math.PI*2/7;
+      out += (c+Math.cos(a)*rr).toFixed(1) + ',' + (c+Math.sin(a)*rr).toFixed(1) + ' ';
+    }
+    out += '" fill="none" stroke="rgba(239,231,218,' + (k === 3 ? .17 : .07) + ')"/>';
+  }
+  for(i = 0;i < 7;i++){
+    a = -Math.PI/2 + i*Math.PI*2/7;
+    out += '<line x1="' + c + '" y1="' + c + '" x2="' + (c+Math.cos(a)*R).toFixed(1) + '" y2="' + (c+Math.sin(a)*R).toFixed(1) +
+           '" stroke="rgba(198,154,82,.2)"/>';
+    out += '<circle cx="' + (c+Math.cos(a)*R*0.33).toFixed(1) + '" cy="' + (c+Math.sin(a)*R*0.33).toFixed(1) + '" r="1.3" fill="rgba(198,154,82,.45)"/>';
+  }
+  out += '<circle cx="' + c + '" cy="' + c + '" r="2.2" fill="rgba(198,154,82,.7)"/>';
+  out += '<text class="rosette-center" id="ros-center" x="' + c + '" y="' + (c + 34) + '" text-anchor="middle">悬停看维度</text>';
+  for(i = 0;i < 7;i++){
+    a = -Math.PI/2 + i*Math.PI*2/7;
+    out += '<text class="rosette-label" data-i="' + i + '" x="' + (c+Math.cos(a)*(R+30)).toFixed(1) + '" y="' +
+           (c+Math.sin(a)*(R+30)).toFixed(1) + '" text-anchor="middle" dominant-baseline="middle">' + DIMS[i].n + '</text>';
+  }
+  out += '</svg>';
+  $('rosette').innerHTML = out;
+
+  var labels = $('rosette').querySelectorAll('.rosette-label');
+  Array.prototype.forEach.call(labels, function(el){
+    var idx = Number(el.getAttribute('data-i'));
+    el.addEventListener('mouseenter', function(){
+      Array.prototype.forEach.call(labels, function(o){ o.classList.remove('hot'); });
+      el.classList.add('hot');
+      $('ros-center').textContent = DIMS[idx].tag;
+    });
+    el.addEventListener('mouseleave', function(){
+      el.classList.remove('hot');
+      $('ros-center').textContent = '悬停看维度';
+    });
+  });
+
+  if(!REDUCE){
+    var ring = $('spin-ring'), t = 0;
+    (function spin(){
+      t += 0.9;
+      ring.setAttribute('transform','rotate(' + (t*0.05).toFixed(2) + ' ' + c + ' ' + c + ')');
+      window.__rosRaf = requestAnimationFrame(spin);
+    })();
+  }
+}
+
+function buildIndex(){
+  var html = '';
+  DIMS.forEach(function(d,i){
+    html += '<div class="idx-row">'
+      + '<span class="idx-n">' + pad2(i+1) + '</span>'
+      + '<div class="idx-main"><span class="idx-name">' + d.n + '</span><span class="idx-tag">' + d.tag + '</span></div>'
+      + '<p class="idx-desc">' + d.lv.mid.read + '</p>'
+      + '</div>';
+  });
+  $('index-list').innerHTML = html;
+}
+
+function readStore(){
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(!raw) return null;
+    var o = JSON.parse(raw);
+    if(!o || !o.answers || o.answers.length !== totalItems) return null;
+    return o;
+  }catch(e){ return null; }
+}
+function enterHome(){
+  var saved = readStore();
+  $('btn-last').hidden = !saved;
+  $('hero-stat').textContent = saved ? '上次测于 ' + saved.when + '，结果已留在本机' : '';
+}
+
+/* ================= 答题 ================= */
+function buildTicks(){
+  var out = '';
+  for(var i = 0;i < totalItems;i++) out += '<i></i>';
+  $('ticks').innerHTML = out;
+}
+function startQuiz(){
+  state = {i:0, answers:[]};
+  RESULT = null;
+  locked = false;
+  buildTicks();
+  renderQuiz();
+  nav('quiz');
+}
+function renderQuiz(){
+  locked = false;
+  var q = QUESTIONS[state.i];
+  $('q-text').textContent = q.t;
+  $('q-count').textContent = pad2(state.i+1) + ' / ' + totalItems;
+
+  var ticks = $('ticks').children;
+  var answered = 0;
+  for(var i = 0;i < ticks.length;i++){
+    var done = typeof state.answers[i] === 'number';
+    if(done) answered++;
+    ticks[i].className = done ? 'on' : (i === state.i ? 'now' : '');
+  }
+  paintMini();
+
+  var back = $('btn-back');
+  back.textContent = state.i === 0 ? '退出' : '上一题';
+
+  var box = $('opts');
+  box.innerHTML = '';
+  SCALE.forEach(function(s,si){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt' + (state.answers[state.i] === s.v ? ' sel' : '');
+    var dots = '<b class="f"></b>';
+    for(var d = 1;d < 4;d++) dots += '<b class="' + (d <= si ? 'f' : '') + '"></b>';
+    b.innerHTML = '<span class="dots">' + dots + '</span>'
+      + '<span class="t">' + s.t + '</span>'
+      + '<span class="hz">' + s.h + '</span>';
+    b.addEventListener('click', function(){ pick(s.v); });
+    box.appendChild(b);
+  });
+}
+function liveScores(){
+  var s = [0,0,0,0,0,0,0];
+  for(var i = 0;i < state.answers.length;i++){
+    var a = state.answers[i];
+    if(typeof a === 'number') s[QUESTIONS[i].d] += a;
+  }
+  return s;
+}
+var miniProg = 0, miniRaf = null;
+function paintMini(){
+  var cv = $('mini');
+  if(!cv) return;
+  var size = cv.clientWidth || 74;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = Math.round(size*dpr);
+  cv.height = Math.round(size*dpr);
+  var ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,size,size);
+  var vals = liveScores();
+  drawRadar(ctx, {x:0,y:0,w:size,h:size, values:vals, max:9, progress:miniProg, fs:0, lw:0.7, labels:false, hl:-1});
+}
+function updateMini(){
+  if(window.__miniRaf) cancelAnimationFrame(window.__miniRaf);
+  if(REDUCE){ miniProg = 1; paintMini(); return; }
+  var t0 = performance.now();
+  (function step(t){
+    var k = Math.min(1, (t-t0)/450);
+    miniProg = 1 - Math.pow(1-k,3);
+    paintMini();
+    if(k < 1) window.__miniRaf = requestAnimationFrame(step);
+  })(t0);
+}
+function pick(v){
+  if(locked) return;
+  locked = true;
+  state.answers[state.i] = v;
+  var nodes = document.querySelectorAll('#opts .opt');
+  for(var i = 0;i < nodes.length;i++) nodes[i].classList.toggle('sel', i === v);
+  var ticks = $('ticks').children;
+  if(ticks[state.i]) ticks[state.i].className = 'on';
+  miniProg = 0;
+  updateMini();
+  setTimeout(function(){
+    if(state.i < totalItems - 1){
+      state.i++;
+      renderQuiz();
+    }else{
+      finish();
+    }
+  }, REDUCE ? 60 : 300);
+}
+function finish(){
+  computeResult();
+  try{
+    localStorage.setItem(KEY, JSON.stringify({
+      answers: state.answers,
+      when: new Date().toLocaleDateString('zh-CN') + ' ' + new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'}),
+      scores: SCORES
+    }));
+  }catch(e){}
+  nav('result');
+}
+
+/* ================= 计算 ================= */
+function computeResult(){
+  SCORES = DIMS.map(function(){ return 0; });
+  state.answers.forEach(function(a,i){ if(typeof a === 'number') SCORES[QUESTIONS[i].d] += a; });
+  var order = DIMS.map(function(d,i){ return {i:i, v:SCORES[i]}; })
+    .sort(function(a,b){ return b.v - a.v || a.i - b.i; });
+  var total = SCORES.reduce(function(s,v){ return s+v; }, 0);
+  var avg = total/7;
+  var top1 = order[0].v, top2 = order[1].v, last = order[6].v;
+  var doms = [];
+  SCORES.forEach(function(v,i){ if(v === top1) doms.push(i); });
+
+  var shape;
+  if(top1 <= 2) shape = 'low';
+  else if(top1 - top2 <= 1 && top1 >= 6) shape = 'twin';
+  else if(top1 - avg >= 2) shape = 'peak';
+  else shape = 'slope';
+
+  var SHAPE_NAME = {low:'低平型', twin:'双峰型', peak:'单峰型', slope:'缓坡型'};
+  var conc;
+  if(total <= 20) conc = {k:'低', s:'你几乎不被这些东西推着走，反应很省力，也不太容易上头。'};
+  else if(total <= 36) conc = {k:'中低', s:'大多时候你能自己拿主意，只在很少的场合被这几股劲接管。'};
+  else if(total <= 48) conc = {k:'中高', s:'你身上这几股劲都不算小，平时能压住，累的时候容易漏出来。'};
+  else conc = {k:'高', s:'你的欲望浓度偏高，活得用力，也更容易累——你的问题往往不是「做不到」，而是「停不下」。'};
+
+  RESULT = {
+    order: order, doms: doms, total: total, avg: avg, top1: top1, top2: top2, last: last,
+    shape: shape, shapeName: SHAPE_NAME[shape], conc: conc,
+    gap: top1 - last, second: order[1].i, low: order[6].i
+  };
+  HL = doms[0];
+}
+
+/* ================= 雷达绘制 ================= */
+function drawRadar(ctx, o){
+  var w = o.w, h = o.h, x = o.x || 0, y = o.y || 0;
+  var cx = x + w/2, cy = y + h/2;
+  var labels = o.labels === false ? false : true;
+  var fs = o.fs;
+  var r = Math.min(w,h)/2 - (labels ? Math.max(fs*2.9, 30) : 6);
+  var lw = o.lw || 1;
+  var p = typeof o.progress === 'number' ? o.progress : 1;
+  var max = o.max || 9;
+  var hl = typeof o.hl === 'number' ? o.hl : -1;
+  var dom = typeof o.dom === 'number' ? o.dom : -1;
+  var ang = function(i){ return -Math.PI/2 + i*Math.PI*2/7; };
+  var i, k, a, rr, px, py;
+
+  for(k = 1;k <= 3;k++){
+    rr = r*k/3;
+    ctx.beginPath();
+    for(i = 0;i < 7;i++){
+      px = cx + Math.cos(ang(i))*rr; py = cy + Math.sin(ang(i))*rr;
+      if(i) ctx.lineTo(px,py); else ctx.moveTo(px,py);
+    }
+    ctx.closePath();
+    ctx.lineWidth = lw;
+    ctx.strokeStyle = 'rgba(239,231,218,' + (k === 3 ? .16 : .07) + ')';
+    ctx.stroke();
+  }
+  for(i = 0;i < 7;i++){
+    a = ang(i);
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx + Math.cos(a)*r, cy + Math.sin(a)*r);
+    ctx.lineWidth = lw;
+    ctx.strokeStyle = (i === hl || i === dom) ? 'rgba(198,154,82,.5)' : 'rgba(239,231,218,.08)';
+    ctx.stroke();
+  }
+
+  var vals = o.values.map(function(v){ return Math.min(v,max)/max; });
+  ctx.beginPath();
+  for(i = 0;i < 7;i++){
+    a = ang(i);
+    rr = r*vals[i]*p;
+    px = cx + Math.cos(a)*rr; py = cy + Math.sin(a)*rr;
+    if(i) ctx.lineTo(px,py); else ctx.moveTo(px,py);
+  }
+  ctx.closePath();
+  if(p > 0.001){
+    var g = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+    g.addColorStop(0,'rgba(198,154,82,' + (0.30*p) + ')');
+    g.addColorStop(1,'rgba(198,154,82,' + (0.05*p) + ')');
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.lineWidth = lw*1.7;
+    ctx.strokeStyle = 'rgba(223,184,119,' + (0.9*p) + ')';
+    ctx.stroke();
+    for(i = 0;i < 7;i++){
+      a = ang(i);
+      rr = r*vals[i]*p;
+      px = cx + Math.cos(a)*rr; py = cy + Math.sin(a)*rr;
+      ctx.fillStyle = (i === hl) ? 'rgba(223,184,119,1)' : 'rgba(239,231,218,' + (0.9*p) + ')';
+      ctx.beginPath();
+      ctx.arc(px, py, (i === hl ? 3.2 : 2.2) * Math.max(1, fs/12), 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  if(!labels) return;
+
+  for(k = 1;k <= 3;k++){
+    ctx.font = '400 ' + Math.round(fs*0.82) + 'px ' + SERIF;
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'rgba(239,231,218,.26)';
+    ctx.fillText(String(max*k/3), cx - 7, cy - r*k/3);
+  }
+
+  for(i = 0;i < 7;i++){
+    a = ang(i);
+    var lx = cx + Math.cos(a)*(r + fs*1.4);
+    var ly = cy + Math.sin(a)*(r + fs*1.4);
+    ctx.font = (i === hl || i === dom ? '600 ' : '400 ') + fs + 'px ' + SERIF;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = (i === hl || i === dom) ? '#DFB877' : 'rgba(239,231,218,.5)';
+    ctx.fillText(DIMS[i].n, lx, ly);
+  }
+}
+
+function paintRadar(progress){
+  var cv = $('radar');
+  var size = cv.parentNode.clientWidth;
+  if(!size) size = 520;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = Math.round(size*dpr);
+  cv.height = Math.round(size*dpr);
+  cv.style.height = size + 'px';
+  var ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,size,size);
+  drawRadar(ctx, {
+    x:0, y:0, w:size, h:size,
+    values:SCORES, max:9, progress:progress,
+    fs: size < 360 ? 11 : (size < 460 ? 12.5 : 14),
+    lw: 1,
+    hl: HL, dom: RESULT ? RESULT.doms[0] : -1
+  });
+}
+function animateRadar(){
+  if(window.__radarRaf) cancelAnimationFrame(window.__radarRaf);
+  if(REDUCE){ paintRadar(1); return; }
+  var t0 = performance.now();
+  (function step(t){
+    var k = Math.min(1, (t-t0)/950);
+    paintRadar(1 - Math.pow(1-k,3));
+    if(k < 1) window.__radarRaf = requestAnimationFrame(step);
+  })(t0);
+}
+
+/* ================= 结果渲染 ================= */
+function shapeText(){
+  var s = RESULT.shape;
+  if(s === 'peak') return '刻盘上有一根很长的尖角：你的很大一部分行为，由同一个开关控制。好处是方向清楚、不容易纠结；坏处是遇到那根尖角解决不了的问题时，你没有第二套办法。';
+  if(s === 'twin') return '两根接近的高点并列，说明你同时被两种力量推动。它们有时互相加持，有时互相拆台——具体是哪一种，看下面两条的搭配。';
+  if(s === 'slope') return '七项之间差得不多，形状接近一个不规则的七边形。你不太被单一欲望牵着走，代价是遇到需要孤注一掷的时刻，你会先犹豫。';
+  return '整张刻盘都贴着圆心，总分很低。你不太被这些东西推着走，日子过得相对省力；但要留意一种可能——不是没有欲望，而是你把它们压到了很低的地方。';
+}
+function comboText(){
+  var a = DIMS[RESULT.doms[0]].axis;
+  var b = DIMS[RESULT.second].axis;
+  var hasRetreat = (a === 'retreat' || b === 'retreat');
+  var other = (a === 'retreat') ? b : a;
+  if(hasRetreat){
+    if(other === 'seek') return '一个高点在「取」，另一个是「退」：你其实想拿，但更容易先把手收回来。你的典型模式是「想动，先躺」——想法很多，启动很少。';
+    return '一个高点在「守」，另一个是「退」：你在意，但不太想争。你倾向把不舒服咽下去，然后绕开——省事，但事情不会自己消失。';
+  }
+  if(a === 'defend' && b === 'defend') return '两个高点都在「守」这一侧：你更在意不被看轻、不被冒犯，而不是拿到更多。你的力气多花在维持姿态上，所以看起来稳，其实耗得不轻。';
+  if(a === 'seek' && b === 'seek') return '两个高点都在「取」这一侧：你想要更多体验、更多拥有。驱动力很足，但满足感很短——你追的往往不是某样东西，是「还在往前」的感觉。';
+  return '一个向内守，一个向外要：你既想被认可，也想被填满。这两股劲一起推着你，也一起让你累——因为它们要的东西不一样，你很难同时觉得够了。';
+}
+function renderResult(){
+  var d0 = DIMS[RESULT.doms[0]];
+  var lvl = levelOf(SCORES[RESULT.doms[0]]);
+  $('res-name').textContent = d0.lv[lvl].name;
+  $('res-top-tag').textContent = '刻盘 · 已完成 ' + totalItems + '/' + totalItems;
+
+  var sub = '<span>主导</span><b>' + d0.n + ' ' + SCORES[RESULT.doms[0]] + '/9</b>'
+    + '<span>次主导</span><b>' + DIMS[RESULT.second].n + ' ' + SCORES[RESULT.second] + '/9</b>'
+    + '<span>浓度</span><b>' + RESULT.conc.k + '</b>'
+    + '<span>形态</span><b>' + RESULT.shapeName + '</b>';
+  $('res-sub').innerHTML = sub;
+
+  var p1 = '总分 ' + RESULT.total + '/63，最高点是 ' + d0.n + '（' + SCORES[RESULT.doms[0]] + '/9），最低是 '
+    + DIMS[RESULT.low].n + '（' + SCORES[RESULT.low] + '/9），落差 ' + RESULT.gap + ' 分。' + RESULT.conc.s;
+  $('structure').innerHTML = '<p>' + p1 + '</p><p>' + shapeText() + '</p><p>' + comboText() + '</p>'
+    + '<p>你几乎不' + DIMS[RESULT.low].n + '。' + DIMS[RESULT.low].shadow + '</p>';
+
+  var rows = '';
+  RESULT.order.forEach(function(item, ri){
+    var d = DIMS[item.i], lv = levelOf(item.v);
+    var cells = '';
+    for(var j = 0;j < 9;j++) cells += '<i class="' + (j < item.v ? 'on' : '') + '"></i>';
+    rows += '<div class="led-row' + (item.v === RESULT.top1 ? ' top' : '') + '" data-i="' + item.i + '" role="button" tabindex="0">'
+      + '<span class="led-rk">' + pad2(ri+1) + '</span>'
+      + '<span class="led-nm">' + d.n + '<em>' + d.lv[lv].name + '</em></span>'
+      + '<span class="led-lv">' + levelText(item.v) + '</span>'
+      + '<span class="led-cells" aria-hidden="true">' + cells + '</span>'
+      + '<span class="led-sc">' + item.v + '</span>'
+      + '</div>';
+  });
+  $('ledger').innerHTML = rows;
+
+  Array.prototype.forEach.call($('ledger').children, function(row){
+    var activate = function(){
+      var idx = Number(row.getAttribute('data-i'));
+      HL = idx;
+      Array.prototype.forEach.call($('ledger').children, function(r){ r.classList.remove('on'); });
+      row.classList.add('on');
+      showDetail(idx);
+      paintRadar(1);
+    };
+    row.addEventListener('click', activate);
+    row.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(); }
+    });
+  });
+
+  // 主导详解
+  var deep = '';
+  deep += '<div class="block"><h4><span class="mark">壹</span>你如何运作</h4><p>' + d0.lv[lvl].read + '</p></div>';
+  deep += '<div class="block"><h4><span class="mark">贰</span>它给你的</h4><p>' + d0.gift + '</p></div>';
+  deep += '<div class="block"><h4><span class="mark">叁</span>它拿走的</h4><p>' + d0.cost + '</p></div>';
+  $('deep').innerHTML = deep;
+
+  // 次主导
+  var s2 = RESULT.second, d2 = DIMS[s2], lv2 = levelOf(SCORES[s2]);
+  var rel;
+  if(d2.axis === d0.axis){
+    rel = '它和你的主导项在同一侧，两个人格高点会互相放大：你在这个方向上的强度，比单项分数看起来更明显。';
+  }else if(d2.axis === 'retreat' || d0.axis === 'retreat'){
+    rel = '它俩常常互相抵消：一个想动，一个想省力，所以你经常停在「已经想好了，但还没开始」的地方。';
+  }else{
+    rel = '它和你的主导项方向相反，一个守一个取，所以你会同时觉得「不想被看轻」和「想要更多」——这两件事很难同时被满足。';
+  }
+  $('second').innerHTML = '<p>' + d2.lv[lv2].read + '</p><p>' + rel + '</p>';
+
+  // 建议
+  var tips = '';
+  tips += '<div class="tip"><b>01</b><p>' + d0.tip + '<span>针对你的主导项 · ' + d0.n + '</span></p></div>';
+  tips += '<div class="tip"><b>02</b><p>' + DIMS[s2].tip + '<span>针对你的次主导 · ' + DIMS[s2].n + '</span></p></div>';
+  tips += '<div class="tip"><b>03</b><p>' + BLIND[RESULT.low] + '<span>针对你的盲区 · ' + DIMS[RESULT.low].n + '（' + SCORES[RESULT.low] + '/9）</span></p></div>';
+  $('tips').innerHTML = tips;
+
+  // 全维
+  var more = '';
+  DIMS.forEach(function(d,i){
+    var lv3 = levelOf(SCORES[i]);
+    more += '<div class="more-item"><div class="hd"><h4>' + d.n + '</h4>'
+      + '<span class="lvs">你在<b>' + d.lv[lv3].name + '</b> · ' + SCORES[i] + '/9</span></div>'
+      + '<p>' + d.lv[lv3].read + '</p>'
+      + '<p class="shadow"><b>另一面：</b>' + d.shadow + '</p></div>';
+  });
+  $('more-list').innerHTML = more;
+
+  showDetail(RESULT.doms[0]);
+  Array.prototype.forEach.call($('ledger').children, function(r){
+    if(Number(r.getAttribute('data-i')) === RESULT.doms[0]) r.classList.add('on');
+  });
+}
+function showDetail(idx){
+  var d = DIMS[idx], v = SCORES[idx], lv = levelOf(v);
+  var el = $('detail');
+  el.innerHTML = '<h4>' + d.n + ' · ' + d.tag + ' · ' + v + '/9 · ' + d.lv[lv].name + '</h4>'
+    + '<p>' + d.lv[lv].read + '</p>'
+    + '<div class="kv"><span><b>给你的</b> ' + d.gift + '</span><span><b>拿走的</b> ' + d.cost + '</span></div>';
+  el.classList.add('show');
+}
+function enterResult(){
+  if(!RESULT){
+    var saved = readStore();
+    if(saved){
+      state.answers = saved.answers;
+      computeResult();
+    }else{
+      toast('还没有结果，先做一遍题');
+      nav('home');
+      return;
+    }
+  }
+  renderResult();
+  animateRadar();
+}
+
+/* ================= 海报 ================= */
+function wrapText(ctx, text, maxW, lineH, maxLines){
+  var lines = [], line = '';
+  for(var i = 0;i < text.length;i++){
+    var ch = text[i];
+    if(ctx.measureText(line + ch).width > maxW && line){
+      lines.push(line); line = ch;
+      if(maxLines && lines.length >= maxLines){ lines.push('…'); return lines; }
+    }else{ line += ch; }
+  }
+  if(line) lines.push(line);
+  return lines;
+}
+function buildPoster(){
+  var W = 1080, H = 1620;
+  var c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  var ctx = c.getContext('2d');
+  var d0 = DIMS[RESULT.doms[0]], lvl = levelOf(SCORES[RESULT.doms[0]]);
+
+  ctx.fillStyle = '#100D0A'; ctx.fillRect(0,0,W,H);
+  var glow = ctx.createRadialGradient(820,60,0,820,60,950);
+  glow.addColorStop(0,'rgba(198,154,82,.13)');
+  glow.addColorStop(1,'rgba(198,154,82,0)');
+  ctx.fillStyle = glow; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle = 'rgba(239,231,218,.16)'; ctx.lineWidth = 1;
+  ctx.strokeRect(56.5,56.5,W-113,H-113);
+
+  // 顶部印章
+  ctx.strokeStyle = 'rgba(198,154,82,.5)';
+  ctx.strokeRect(90.5,92.5,46,46);
+  ctx.fillStyle = '#C69A52'; ctx.font = '400 26px ' + SERIF;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('七', 113, 116);
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = 'rgba(198,154,82,.9)'; ctx.font = '400 20px ' + SANS;
+  ctx.fillText('七宗罪 · 分布测试', 152, 118);
+
+  ctx.fillStyle = '#EFE7DA'; ctx.font = '600 84px ' + SERIF;
+  ctx.fillText(d0.lv[lvl].name, 86, 268);
+  ctx.fillStyle = '#C69A52'; ctx.font = '400 24px ' + SANS;
+  ctx.fillText('主导 ' + d0.n + ' ' + SCORES[RESULT.doms[0]] + '/9　次主导 ' + DIMS[RESULT.second].n + ' ' + SCORES[RESULT.second] + '/9　' + RESULT.shapeName + '　浓度' + RESULT.conc.k, 90, 314);
+
+  drawRadar(ctx, {
+    x:180, y:344, w:720, h:600,
+    values:SCORES, max:9, progress:1,
+    fs:23, lw:1.4, hl:RESULT.doms[0], dom:RESULT.doms[0]
+  });
+
+  var top = 1010;
+  ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'left';
+  RESULT.order.forEach(function(item, ri){
+    var d = DIMS[item.i], lv = levelOf(item.v), yy = top + ri*52;
+    ctx.fillStyle = 'rgba(239,231,218,.12)';
+    ctx.fillRect(90, yy + 14, 900, 1);
+    ctx.textAlign = 'left';
+    ctx.fillStyle = item.v === RESULT.top1 ? '#DFB877' : 'rgba(239,231,218,.4)';
+    ctx.font = '400 18px ' + SANS;
+    ctx.fillText(pad2(ri+1), 90, yy);
+    ctx.fillStyle = item.v === RESULT.top1 ? '#EFE7DA' : 'rgba(239,231,218,.74)';
+    ctx.font = '500 27px ' + SERIF;
+    ctx.fillText(d.n, 138, yy + 2);
+    ctx.fillStyle = 'rgba(198,154,82,.65)'; ctx.font = '400 13px ' + SANS;
+    ctx.fillText(d.lv[lv].name, 138, yy + 24);
+    for(var j = 0;j < 9;j++){
+      ctx.fillStyle = j < item.v ? (item.v === RESULT.top1 ? '#DFB877' : '#C69A52') : 'rgba(239,231,218,.09)';
+      ctx.fillRect(400 + j*38, yy - 5, 28, 6);
+    }
+    ctx.textAlign = 'right';
+    ctx.fillStyle = item.v === RESULT.top1 ? '#DFB877' : 'rgba(239,231,218,.75)';
+    ctx.font = '500 27px ' + SERIF;
+    ctx.fillText(String(item.v), 990, yy + 2);
+    ctx.textAlign = 'left';
+  });
+
+  ctx.fillStyle = 'rgba(239,231,218,.4)'; ctx.font = '400 17px ' + SANS;
+  ctx.fillText('二十一题 · 仅供娱乐 · 不作心理诊断或道德评价', 90, 1470);
+
+  return c;
+}
+function savePoster(){
+  try{
+    var cv = buildPoster();
+    var d0 = DIMS[RESULT.doms[0]], lvl = levelOf(SCORES[RESULT.doms[0]]);
+    var name = '七宗罪刻盘-' + d0.lv[lvl].name + '.png';
+    var out = function(blob){
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = name;
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 700);
+      toast('刻盘已保存到下载文件夹');
+    };
+    if(cv.toBlob) cv.toBlob(out, 'image/png');
+    else{
+      var a2 = document.createElement('a');
+      a2.href = cv.toDataURL('image/png'); a2.download = name;
+      document.body.appendChild(a2); a2.click(); a2.remove();
+      toast('刻盘已保存');
+    }
+  }catch(e){
+    toast('这张图没能导出，直接截图也一样好看');
+  }
+}
+function copyText(){
+  var d0 = DIMS[RESULT.doms[0]], lvl = levelOf(SCORES[RESULT.doms[0]]);
+  var t = '我的七宗罪刻盘：' + d0.lv[lvl].name + '（主导 ' + d0.n + ' ' + SCORES[RESULT.doms[0]] + '/9，次主导 '
+    + DIMS[RESULT.second].n + ' ' + SCORES[RESULT.second] + '/9，' + RESULT.shapeName + '，浓度' + RESULT.conc.k + '）\n'
+    + DIMS.map(function(d,i){ return d.n + SCORES[i]; }).join('  ') + '\n'
+    + '二十一题，三分钟，测你的刻盘长什么样。';
+  var done = function(){ toast('结果文案已复制'); };
+  var fallback = function(){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){ toast('复制失败，手动截图更快'); }
+    ta.remove();
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, fallback);
+  else fallback();
+}
+
+/* ================= 事件 ================= */
+$('btn-start').addEventListener('click', startQuiz);
+$('btn-last').addEventListener('click', function(){
+  var saved = readStore();
+  if(!saved){ toast('还没有上次的结果'); return; }
+  state.answers = saved.answers;
+  computeResult();
+  nav('result');
+});
+$('btn-back').addEventListener('click', function(){
+  if(state.i === 0){ nav('home'); return; }
+  state.i--;
+  renderQuiz();
+});
+$('btn-again').addEventListener('click', startQuiz);
+$('btn-save').addEventListener('click', function(){ if(RESULT) savePoster(); });
+$('btn-copy').addEventListener('click', function(){ if(RESULT) copyText(); });
+
+document.addEventListener('keydown', function(e){
+  if(views.quiz.classList.contains('active')){
+    if(locked) return;
+    if(/^[1-4]$/.test(e.key)){ e.preventDefault(); pick(Number(e.key) - 1); return; }
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); $('btn-back').click(); }
+  }
+});
+
+var resizeTimer = null;
+window.addEventListener('resize', function(){
+  if(!views.result.classList.contains('active') || !RESULT) return;
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function(){ paintRadar(1); }, 150);
+});
+
+/* ================= 启动 ================= */
+buildRosette();
+buildIndex();
+buildTicks();
+enterHome();
+show('home');
+if(location.hash === '#result'){
+  var saved0 = readStore();
+  if(saved0){ state.answers = saved0.answers; computeResult(); show('result'); enterResult(); }
+}
+</script>
+
+<script>
+/* =========================================================
+   精准解读层：覆盖默认实现
+   规则：并列即并列，不制造“最高/最低”；全等单独成一类结局
+   ========================================================= */
+
+var PAIRS = {
+  '0-1':'你想赢，又总在确认自己有没有输——你会盯着比你强的人，同时不肯承认他强。两件事一起，精力都花在维持位置感上，而不是真的往前走。',
+  '0-2':'你的自尊和情绪绑在一起：一旦被质疑，先是火，再是辩解。你很难被说服，因为你听到的不是观点，是态度。',
+  '0-3':'心气高，行动少。你对自己的评价很高，却不太愿意为这个评价付出对应的努力，于是常有一种「我本可以」的悬空感。',
+  '0-4':'既要面子，也要里子。你不容易满足，也不容易承认自己不够；往上走的劲很足，但很少有人能提醒你方向错了。',
+  '0-5':'你不太容易被别人左右，但很容易被自己哄过去。撑不住的时候，用一顿好的把情绪压下去，然后继续端着。',
+  '0-6':'你对好看的人和好看的东西都没有抵抗力，同时又很在意自己在对方眼里的位置。你会为一个眼神反复推演，但不肯先开口。',
+  '1-2':'你的火，多半是被比较点着的。真正让你失控的不是事情本身，是「凭什么他可以」。你的愤怒里有一半是委屈。',
+  '1-3':'你会看着别人往前，自己却不动。最难的地方是：你知道差距在哪，也不打算追，于是变成一种持续的低落。',
+  '1-4':'你的眼睛永远在别人手上。你想要更多，也一直在确认别人是不是拿得比你多，很难纯粹地为自己高兴一次。',
+  '1-5':'看见别人过得好，你会先难受，然后找点东西吃。情绪出口是嘴，问题是吃完之后，那件事还在。',
+  '1-6':'你在意别人被喜欢的样子。你会反复看那些被偏爱的人——既想成为，也想被那样看着。',
+  '2-3':'你会突然爆发，然后迅速熄火。很少把一件事追究到底：气完就算了，问题留在原地，下次再气一遍。',
+  '2-4':'你要得快，也要得多。这两项一起的时候，容易在争的时候用力过猛，把本来能拿到的东西争丢。',
+  '2-5':'情绪上来时，你会先找东西压住它。吃完之后火还在，只是没力气发了。',
+  '2-6':'你的注意力很容易被好看的东西劫走，也容易因为一个人忽然炸。情绪的开关，很多时候握在别人手里。',
+  '3-4':'想拿，但懒得伸手。收藏夹里全是「以后要做」的事，野心大多停在计划阶段。',
+  '3-5':'最舒服、也最容易困住人的组合：躺着、吃着、刷着，时间过得很快，但什么都没留下。满足来得太容易，所以不太需要努力。',
+  '3-6':'你会为心动付出行动，但只到「看一眼」为止。你喜欢被美击中的感觉，不太愿意为它承担后续的麻烦。',
+  '4-5':'你要更多，也要更满。欲望是加法：多买一份、多吃一口、多要一点。停下来对你来说比开始更难。',
+  '4-6':'你想要的东西里，很大一部分是想被看见、被喜欢。所谓「更多」，有时不是钱或成就，是注意力。',
+  '5-6':'你靠感官活着：好吃的、好看的、好听的。快乐来得直接，也走得直接，中间那段空需要新的刺激来填。'
+};
+
+var EQUAL_TIPS = {
+  low:[
+    {t:'如果答题时你确实如此：你很少被这些东西推动，情绪和欲望都调得很低。好处是稳、省电；要留意的是「不太想要」有时会伪装成「不在乎」，久了会连自己想要什么都说不清。', note:'低平刻盘 · 第一件事'},
+    {t:'挑一件你最近真正在意的小事写下来，只做第一步。低欲望的人不缺自制力，缺的是一个起点。', note:'低平刻盘 · 第二件事'},
+    {t:'别把「我没什么欲望」当成优点去维护——它值得保留，但不必成为你的标签。', note:'低平刻盘 · 第三件事'}
+  ],
+  mid:[
+    {t:'七项同分，说明七种反应被调到了同一个音量：哪一面都不会突然接管你。这在长时间的合作里是优势——你稳定、可预测，不会因为情绪换人。', note:'中位均衡 · 长处'},
+    {t:'代价是缺少一个明确的主开关。遇到必须强行取舍的时刻，你会先犹豫，因为没有哪一项天然地替你做决定。', note:'中位均衡 · 代价'},
+    {t:'给自己装一个人工开关：提前写下「这件事如果只能保一个，我保哪个」。犹豫本身不是问题，临时才想才是。', note:'中位均衡 · 做法'}
+  ],
+  high:[
+    {t:'七项都很高，意味着你不是被一种力量推着，而是被七种同时拉着。你的问题通常不是「不够」，是「太满」。', note:'高位均衡 · 处境'},
+    {t:'你很少有空的时候，也几乎不可能真正休息：一件事停下来，另一件立刻补位。这不是勤奋，是停不下来。', note:'高位均衡 · 代价'},
+    {t:'每周留一段完全空的时间，不做任何有用的事。对满格的刻盘来说，空才是修复，不是浪费。', note:'高位均衡 · 做法'}
+  ]
+};
+
+function pairKey(a,b){ return a < b ? (a + '-' + b) : (b + '-' + a); }
+function pairText(a,b){
+  if(a < 0 || b < 0) return '';
+  return PAIRS[pairKey(a,b)] || '';
+}
+function dimNames(list){ return list.map(function(i){ return DIMS[i].n; }).join('、'); }
+
+function resultName(){
+  var r = RESULT, lvl = levelOf(r.max);
+  if(r.allEqual) return r.max === 0 ? '全都为零' : '七面同分';
+  if(r.doms.length === 1) return DIMS[r.doms[0]].lv[lvl].name;
+  var n = r.doms.slice(0,2).map(function(i){ return DIMS[i].lv[lvl].name; }).join('·');
+  if(r.doms.length > 2) n += ' 等' + r.doms.length + ' 项';
+  return n;
+}
+
+function computeResult(){
+  SCORES = DIMS.map(function(){ return 0; });
+  state.answers.forEach(function(a,i){ if(typeof a === 'number') SCORES[QUESTIONS[i].d] += a; });
+
+  var order = DIMS.map(function(d,i){ return {i:i, v:SCORES[i]}; })
+    .sort(function(a,b){ return b.v - a.v || a.i - b.i; });
+  var total = SCORES.reduce(function(s,v){ return s + v; }, 0);
+  var avg = total/7;
+  var max = order[0].v, min = order[6].v;
+  var allEqual = (max === min);
+
+  var doms = [], lows = [];
+  SCORES.forEach(function(v,i){ if(v === max) doms.push(i); if(v === min) lows.push(i); });
+
+  var rest = order.filter(function(o){ return o.v < max; });
+  var second = rest.length ? rest[0].i : -1;
+  var secondScore = rest.length ? rest[0].v : -1;
+  var secondTies = rest.length ? rest.filter(function(o){ return o.v === rest[0].v; }).map(function(o){ return o.i; }) : [];
+
+  var ranks = [], rk = 0, prevV = null;
+  order.forEach(function(item, idx){
+    if(item.v !== prevV){ rk = idx + 1; prevV = item.v; }
+    ranks.push({i:item.i, v:item.v, rank:rk});
+  });
+
+  var gap = max - min;
+  var secondV = secondScore < 0 ? max : secondScore;
+  var shape;
+  if(allEqual) shape = 'equal';
+  else if(max <= 2) shape = 'low';
+  else if(doms.length > 1) shape = 'twin';
+  else if(max >= 8 && gap >= 6) shape = 'spike';
+  else if(max - secondV >= 3) shape = 'peak';
+  else shape = 'slope';
+
+  var SHAPE_NAME = {equal:'全等型', low:'低平型', twin:'并列型', peak:'单峰型', slope:'缓坡型', spike:'极端尖峰型'};
+  var conc;
+  if(total <= 20) conc = {k:'低', s:'你几乎不被这些东西推着走，反应很省力，也不太容易上头。'};
+  else if(total <= 36) conc = {k:'中低', s:'大多时候你能自己拿主意，只在很少的场合被这几股劲接管。'};
+  else if(total <= 48) conc = {k:'中高', s:'你身上这几股劲都不算小，平时能压住，累的时候容易漏出来。'};
+  else conc = {k:'高', s:'你的欲望浓度偏高，活得用力，也更容易累——你的问题往往不是「做不到」，而是「停不下」。'};
+
+  RESULT = {
+    order:order, ranks:ranks, doms:doms, lows:lows, allEqual:allEqual,
+    total:total, avg:avg, max:max, min:min, gap:gap,
+    second:second, secondScore:secondScore, secondTies:secondTies,
+    conc:conc, shape:shape, shapeName:SHAPE_NAME[shape]
+  };
+  HL = allEqual ? -1 : doms[0];
+}
+
+/* ---------- 形状 ---------- */
+function shapeText(){
+  var r = RESULT;
+  var d1 = DIMS[r.doms[0]], dS = r.second >= 0 ? DIMS[r.second] : null;
+  var lv = levelOf(r.max);
+  if(r.shape === 'peak'){
+    return '只有一根长角：' + d1.n + ' 比第二名（' + (dS ? dS.n : '—') + '，' + r.secondScore + ' 分）高出 ' +
+      (r.max - r.secondScore) + ' 分。你的很多决定其实由这一个开关在做，其余六项更像背景色——影响你的语气，不影响你的选择。';
+  }
+  if(r.shape === 'spike'){
+    return d1.n + ' 已经接近拉满（' + r.max + '/9），而最低的 ' + dimNames(r.lows) + ' 只有 ' + r.min +
+      ' 分，落差 ' + r.gap + ' 分。极端的好处是辨识度高、发力集中；坏处是当 ' + d1.n +
+      ' 这一项派不上用场的时候，你几乎拿不出第二套反应。';
+  }
+  if(r.shape === 'twin'){
+    return dimNames(r.doms) + ' 并列最高，各 ' + r.max + ' 分，刻盘上有两根一样高的角。这不是「两种性格」，而是同一强度上的两股力——它们经常同时启动，所以别人对你的印象会有点矛盾。';
+  }
+  if(r.shape === 'slope'){
+    return '最高只比次高高 ' + (r.max - r.secondScore) + ' 分，七项落在 ' + r.min + '–' + r.max +
+      ' 分之间，形状没有明显尖角。你不太被单一欲望牵着走，代价是需要孤注一掷的时候，你会先犹豫。';
+  }
+  if(r.shape === 'low'){
+    return '七项都不超过 2 分，整张刻盘贴着圆心。这有两种可能：你确实很少被它们推着走，或者你在答题时把自己放在了一个很克制的位置上。两种情况都成立时，这份结果读起来是「省力」，而不是「压抑」。';
+  }
+  return '';
+}
+
+/* ---------- 结果渲染 ---------- */
+function renderResult(){
+  var r = RESULT;
+  var nm = resultName();
+  var nameEl = $('res-name');
+  nameEl.textContent = nm;
+  nameEl.classList.toggle('long', nm.length > 7);
+
+  var subParts = [];
+  if(r.allEqual){
+    subParts.push('<span>七项</span><b>各 ' + r.max + '/9</b>');
+    subParts.push('<span>高低</span><b>无</b>');
+  }else{
+    subParts.push('<span>' + (r.doms.length > 1 ? '并列主导' : '主导') + '</span><b>' +
+      r.doms.map(function(i){ return DIMS[i].n + ' ' + SCORES[i] + '/9'; }).join(' / ') + '</b>');
+    if(r.second >= 0){
+      subParts.push('<span>' + (r.secondTies.length > 1 ? '次高并列' : '次主导') + '</span><b>' +
+        r.secondTies.map(function(i){ return DIMS[i].n + ' ' + SCORES[i] + '/9'; }).join(' / ') + '</b>');
+    }
+  }
+  subParts.push('<span>浓度</span><b>' + r.conc.k + '</b>');
+  subParts.push('<span>形态</span><b>' + r.shapeName + '</b>');
+  $('res-sub').innerHTML = subParts.join('');
+
+  /* ---- 你的形状 ---- */
+  var paras = [];
+  if(r.allEqual){
+    paras.push('七项全部 ' + r.max + ' 分，总分 ' + r.total + '/63。这份结果里没有最高，也没有最低——不是数据缺失，是七种反应确实被调到了同一个音量。' + r.conc.s);
+    paras.push('全等分布在实际测试里很少见。它通常意味着两件事之一：你要么对七类情境的反应高度一致（情绪不挑场合，来了就是来了），要么你在答题时有意识地给了它们差不多的分数（把自己描述得平均，比描述得极端更安全）。这两者读起来完全不一样。');
+    paras.push('所以这份结果的重点不在「你是哪种人」，而在「你此刻愿意怎么描述自己」。下面七条读数依然有效——它们说明你在这一档强度上是怎么运作的。');
+  }else{
+    var lead = '总分 ' + r.total + '/63。';
+    if(r.doms.length > 1){
+      lead += dimNames(r.doms) + ' 并列最高，各 ' + r.max + ' 分；';
+    }else{
+      lead += '最高是 ' + DIMS[r.doms[0]].n + '（' + r.max + '/9）；';
+    }
+    if(r.lows.length > 1){
+      lead += dimNames(r.lows) + ' 并列最低，各 ' + r.min + ' 分；';
+    }else{
+      lead += '最低是 ' + DIMS[r.lows[0]].n + '（' + r.min + '/9）；';
+    }
+    lead += '落差 ' + r.gap + ' 分。' + r.conc.s;
+    paras.push(lead);
+    paras.push(shapeText());
+
+    var pairA = r.doms[0];
+    var pairB = r.doms.length > 1 ? r.doms[1] : r.second;
+    if(pairB >= 0){
+      paras.push('把 ' + DIMS[pairA].n + '（' + SCORES[pairA] + '/9）和 ' + DIMS[pairB].n + '（' + SCORES[pairB] +
+        '/9）放在一起看：' + pairText(pairA, pairB));
+    }
+    if(r.doms.length > 2){
+      paras.push('另外还有 ' + (r.doms.length - 2) + ' 项同为最高，强度上没有主次之分——这说明你不是被两股力拉着，而是被一组力同时拉着。这种结构在压力下最明显：它们会一起要求你，也一起耗你。');
+    }
+    if(r.lows.length > 1){
+      paras.push(dimNames(r.lows) + ' 一起停在低位。' + DIMS[r.lows[0]].shadow +
+        ' 多个低位同时出现，通常说明你在这一类反应上是整体关着的，而不是碰巧没遇到。');
+    }else{
+      paras.push('你的最低点是 ' + DIMS[r.lows[0]].n + '（' + r.min + '/9）。' + DIMS[r.lows[0]].shadow);
+    }
+    if(r.max === 9){
+      paras.push(DIMS[r.doms[0]].n + ' 拿到满分 9/9：这一项在你身上已经不是「倾向」，是默认反应。它不需要被纠正，但需要被安排——放在对的位置是资产，放错位置就是负债。');
+    }
+    if(r.min === 0){
+      paras.push(DIMS[r.lows[0]].n + ' 是 0 分：你几乎完全没有这一项的反应。别急着补，先确认它是「不需要」，还是「不允许」。');
+    }
+    if(r.gap >= 7){
+      paras.push('最高与最低相差 ' + r.gap + ' 分，这个落差通常是别人最容易误会你的地方——他们会用你的高点来定义你，而你自己更清楚低点在哪。');
+    }
+  }
+  $('structure').innerHTML = paras.map(function(p){ return '<p>' + p + '</p>'; }).join('');
+
+  /* ---- 七维读数 ---- */
+  var rows = '';
+  r.ranks.forEach(function(item){
+    var d = DIMS[item.i], lv = levelOf(item.v);
+    var cells = '';
+    for(var j = 0;j < 9;j++) cells += '<i class="' + (j < item.v ? 'on' : '') + '"></i>';
+    rows += '<div class="led-row' + (item.v === r.max && !r.allEqual ? ' top' : '') + '" data-i="' + item.i +
+      '" role="button" tabindex="0">'
+      + '<span class="led-rk">' + (r.allEqual ? '—' : pad2(item.rank)) + '</span>'
+      + '<span class="led-nm">' + d.n + '<em>' + d.lv[lv].name + '</em></span>'
+      + '<span class="led-lv">' + levelText(item.v) + '</span>'
+      + '<span class="led-cells" aria-hidden="true">' + cells + '</span>'
+      + '<span class="led-sc">' + item.v + '</span>'
+      + '</div>';
+  });
+  $('ledger').innerHTML = rows;
+  Array.prototype.forEach.call($('ledger').children, function(row){
+    var activate = function(){
+      var idx = Number(row.getAttribute('data-i'));
+      HL = idx;
+      Array.prototype.forEach.call($('ledger').children, function(x){ x.classList.remove('on'); });
+      row.classList.add('on');
+      showDetail(idx);
+      paintRadar(1);
+    };
+    row.addEventListener('click', activate);
+    row.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(); }
+    });
+  });
+
+  /* ---- 详解 ---- */
+  var deep = '';
+  if(r.allEqual){
+    $('h-deep').textContent = '没有主导项时，怎么读';
+    deep += '<div class="block"><h4><span class="mark">壹</span>它说明什么</h4><p>七项同分，所以这份结果没有「主开关」。这不代表你性格模糊，而代表七种反应在你身上的强度接近——你更像一个靠情境调用策略的人，而不是靠一种固定的驱动力活着。</p></div>';
+    deep += '<div class="block"><h4><span class="mark">贰</span>它的长处</h4><p>' +
+      (r.max <= 3 ? '你极稳、极省电：很少有东西能让你失控，也很少有东西能让你非做不可。在需要长期保持同一个状态的事情上，你比谁都撑得住。'
+       : r.max <= 6 ? '你在任何场合都不会极端，别人和你相处时不用预判你的情绪。这种可预测性，在长期关系里比任何单一优点都值钱。'
+       : '你七面都开着：理解别人的嫉妒、也理解别人的懒；接得住冲突，也接得住欲望。这让你很难被某一类人完全说服，也很难被某一类事完全击倒。')
+      + '</p></div>';
+    deep += '<div class="block"><h4><span class="mark">叁</span>它的代价</h4><p>' +
+      (r.max <= 3 ? '代价是「没有抓手」。你说不清自己到底想要什么，也很难为一个东西真的拼一次——因为哪一项都不够强，替你做决定。'
+       : r.max <= 6 ? '代价是缺少一个明显的发力点。别人能一眼说出自己最在意什么，你说不出来；需要押注的时候，你会因为「都还行」而错过时机。'
+       : '代价是「同时被拉扯」。七项都高，意味着每一件小事都能同时触发好几种反应：想争、想躺、想要更多、想被喜欢。你的内耗不是因为想太多，是因为每一面都在合理。')
+      + '</p></div>';
+  }else if(r.doms.length === 1){
+    var d0 = DIMS[r.doms[0]], lvl0 = levelOf(r.max);
+    $('h-deep').textContent = '主导项详解';
+    deep += '<div class="block"><h4><span class="mark">壹</span>你如何运作</h4><p>' + d0.lv[lvl0].read + '</p></div>';
+    deep += '<div class="block"><h4><span class="mark">贰</span>它给你的</h4><p>' + d0.gift + '</p></div>';
+    deep += '<div class="block"><h4><span class="mark">叁</span>它拿走的</h4><p>' + d0.cost + '</p></div>';
+    if(r.max === 9){
+      deep += '<div class="block"><h4><span class="mark">肆</span>满分意味着什么</h4><p>这一项 9/9，已经不是「有时候会」，而是「基本每次」。它在你身上没有开关，只有程度。真正要处理的不是它本身，是它的使用场景：什么时候让它出面，什么时候必须按住。</p></div>';
+    }
+  }else{
+    $('h-deep').textContent = '并列项分别看';
+    r.doms.forEach(function(idx, k){
+      var d = DIMS[idx], lv2 = levelOf(SCORES[idx]);
+      deep += '<div class="block"><h4><span class="mark">' + ['壹','贰','叁','肆','伍'][k] + '</span>' +
+        d.n + ' · ' + SCORES[idx] + '/9 · ' + d.lv[lv2].name + '</h4><p>' + d.lv[lv2].read + '</p></div>';
+    });
+    deep += '<div class="block"><h4><span class="mark">合</span>它们怎么合在一起</h4><p>' + pairText(r.doms[0], r.doms[1]) + '</p></div>';
+    deep += '<div class="block"><h4><span class="mark">共</span>共同的代价</h4><p>' +
+      r.doms.slice(0,3).map(function(i){ return DIMS[i].cost; }).join(' ') + '</p></div>';
+  }
+  $('deep').innerHTML = deep;
+
+  /* ---- 次主导 ---- */
+  var sec = $('sec-second');
+  if(r.allEqual || r.second < 0){
+    sec.style.display = 'none';
+  }else{
+    sec.style.display = '';
+    $('h-second').textContent = r.secondTies.length > 1 ? '次高并列' : '次主导';
+    var sp = '';
+    r.secondTies.forEach(function(idx){
+      var d2 = DIMS[idx], lv3 = levelOf(SCORES[idx]);
+      sp += '<p><b style="color:var(--brass-hi);font-weight:500">' + d2.n + ' ' + SCORES[idx] + '/9</b>　' + d2.lv[lv3].read + '</p>';
+    });
+    var dA = DIMS[r.doms[0]], dB = DIMS[r.second];
+    var rel;
+    if(dA.axis === dB.axis){
+      rel = '它和 ' + dA.n + ' 在同一侧，会互相放大：你在这个方向上的强度，比单项分数看起来更明显。';
+    }else if(dA.axis === 'retreat' || dB.axis === 'retreat'){
+      rel = '它和 ' + dA.n + ' 常常互相抵消：一个想动，一个想省力，所以你经常停在「已经想好了，但还没开始」的地方。';
+    }else{
+      rel = '它和 ' + dA.n + ' 方向相反，一个守一个取，所以你会同时觉得「不想被看轻」和「想要更多」——这两件事很难被同时满足。';
+    }
+    sp += '<p>' + rel + '</p>';
+    $('second').innerHTML = sp;
+  }
+
+  /* ---- 建议 ---- */
+  var tips = '';
+  if(r.allEqual){
+    EQUAL_TIPS[r.max <= 3 ? 'low' : (r.max <= 6 ? 'mid' : 'high')].forEach(function(t, i){
+      tips += '<div class="tip"><b>0' + (i+1) + '</b><p>' + t.t + '<span>' + t.note + '</span></p></div>';
+    });
+  }else{
+    tips += '<div class="tip"><b>01</b><p>' + DIMS[r.doms[0]].tip + '<span>' +
+      (r.doms.length > 1 ? '并列主导 · ' : '主导 · ') + DIMS[r.doms[0]].n + '</span></p></div>';
+    if(r.doms.length > 1){
+      tips += '<div class="tip"><b>02</b><p>' + DIMS[r.doms[1]].tip + '<span>并列主导 · ' + DIMS[r.doms[1]].n + '</span></p></div>';
+    }else if(r.second >= 0){
+      tips += '<div class="tip"><b>02</b><p>' + DIMS[r.second].tip + '<span>' +
+        (r.secondTies.length > 1 ? '次高并列 · ' : '次主导 · ') + DIMS[r.second].n + '</span></p></div>';
+    }
+    if(r.lows.length > 1){
+      tips += '<div class="tip"><b>03</b><p>' + BLIND[r.lows[0]] + '<span>低位并列 · ' +
+        dimNames(r.lows) + '（各 ' + r.min + '/9）</span></p></div>';
+    }else{
+      tips += '<div class="tip"><b>03</b><p>' + BLIND[r.lows[0]] + '<span>盲区 · ' +
+        DIMS[r.lows[0]].n + '（' + r.min + '/9）</span></p></div>';
+    }
+  }
+  $('tips').innerHTML = tips;
+
+  /* ---- 全维 ---- */
+  var more = '';
+  DIMS.forEach(function(d,i){
+    var lv4 = levelOf(SCORES[i]);
+    more += '<div class="more-item"><div class="hd"><h4>' + d.n + '</h4>'
+      + '<span class="lvs">你在<b>' + d.lv[lv4].name + '</b> · ' + SCORES[i] + '/9</span></div>'
+      + '<p>' + d.lv[lv4].read + '</p>'
+      + '<p class="shadow"><b>另一面：</b>' + d.shadow + '</p></div>';
+  });
+  $('more-list').innerHTML = more;
+
+  var det = $('detail');
+  det.classList.remove('show');
+  Array.prototype.forEach.call($('ledger').children, function(x){ x.classList.remove('on'); });
+  if(!r.allEqual){
+    showDetail(r.doms[0]);
+    Array.prototype.forEach.call($('ledger').children, function(x){
+      if(Number(x.getAttribute('data-i')) === r.doms[0]) x.classList.add('on');
+    });
+  }
+}
+
+function enterResult(){
+  if(!RESULT){
+    var saved = readStore();
+    if(saved){
+      state.answers = saved.answers;
+      computeResult();
+    }else{
+      toast('还没有结果，先做一遍题');
+      nav('home');
+      return;
+    }
+  }
+  renderResult();
+  animateRadar();
+}
+
+function paintRadar(progress){
+  var cv = $('radar');
+  var size = cv.parentNode.clientWidth || 520;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  cv.width = Math.round(size*dpr);
+  cv.height = Math.round(size*dpr);
+  cv.style.height = size + 'px';
+  var ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,size,size);
+  drawRadar(ctx, {
+    x:0, y:0, w:size, h:size,
+    values:SCORES, max:9, progress:progress,
+    fs: size < 360 ? 11 : (size < 460 ? 12.5 : 14),
+    lw: 1,
+    hl: HL, dom: -1
+  });
+}
+
+/* ---------- 海报 ---------- */
+function buildPoster(){
+  var W = 1080, H = 1620;
+  var c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  var ctx = c.getContext('2d');
+  var r = RESULT;
+  var nm = resultName();
+  var big = nm.length > 7 ? 58 : 84;
+
+  ctx.fillStyle = '#100D0A'; ctx.fillRect(0,0,W,H);
+  var glow = ctx.createRadialGradient(820,60,0,820,60,950);
+  glow.addColorStop(0,'rgba(198,154,82,.13)');
+  glow.addColorStop(1,'rgba(198,154,82,0)');
+  ctx.fillStyle = glow; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle = 'rgba(239,231,218,.16)'; ctx.lineWidth = 1;
+  ctx.strokeRect(56.5,56.5,W-113,H-113);
+
+  ctx.strokeStyle = 'rgba(198,154,82,.5)';
+  ctx.strokeRect(90.5,92.5,46,46);
+  ctx.fillStyle = '#C69A52'; ctx.font = '400 26px ' + SERIF;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('七', 113, 116);
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = 'rgba(198,154,82,.9)'; ctx.font = '400 20px ' + SANS;
+  ctx.fillText('七宗罪 · 分布测试', 152, 118);
+
+  ctx.fillStyle = '#EFE7DA'; ctx.font = '600 ' + big + 'px ' + SERIF;
+  ctx.fillText(nm, 86, 268);
+
+  var line;
+  if(r.allEqual){
+    line = '七项各 ' + r.max + '/9　全等型　浓度' + r.conc.k;
+  }else{
+    line = (r.doms.length > 1 ? '并列主导 ' : '主导 ') + r.doms.map(function(i){ return DIMS[i].n + ' ' + SCORES[i] + '/9'; }).join(' / ');
+    if(r.second >= 0) line += '　' + (r.secondTies.length > 1 ? '次高并列 ' : '次主导 ') + DIMS[r.second].n + ' ' + SCORES[r.second] + '/9';
+    line += '　' + r.shapeName + '　浓度' + r.conc.k;
+  }
+  ctx.fillStyle = '#C69A52'; ctx.font = '400 23px ' + SANS;
+  ctx.fillText(line, 90, 314);
+
+  drawRadar(ctx, {
+    x:180, y:344, w:720, h:600,
+    values:SCORES, max:9, progress:1,
+    fs:23, lw:1.4, hl:r.allEqual ? -1 : r.doms[0], dom:-1
+  });
+
+  var top = 1010;
+  ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'left';
+  r.ranks.forEach(function(item, ri){
+    var d = DIMS[item.i], lv = levelOf(item.v), yy = top + ri*52;
+    var isTop = item.v === r.max && !r.allEqual;
+    ctx.fillStyle = 'rgba(239,231,218,.12)';
+    ctx.fillRect(90, yy + 14, 900, 1);
+    ctx.fillStyle = isTop ? '#DFB877' : 'rgba(239,231,218,.4)';
+    ctx.font = '400 18px ' + SANS;
+    ctx.fillText(r.allEqual ? '—' : pad2(item.rank), 90, yy);
+    ctx.fillStyle = isTop ? '#EFE7DA' : 'rgba(239,231,218,.74)';
+    ctx.font = '500 27px ' + SERIF;
+    ctx.fillText(d.n, 138, yy + 2);
+    ctx.fillStyle = 'rgba(198,154,82,.65)'; ctx.font = '400 13px ' + SANS;
+    ctx.fillText(d.lv[lv].name, 138, yy + 24);
+    for(var j = 0;j < 9;j++){
+      ctx.fillStyle = j < item.v ? (isTop ? '#DFB877' : '#C69A52') : 'rgba(239,231,218,.09)';
+      ctx.fillRect(400 + j*38, yy - 5, 28, 6);
+    }
+    ctx.textAlign = 'right';
+    ctx.fillStyle = isTop ? '#DFB877' : 'rgba(239,231,218,.75)';
+    ctx.font = '500 27px ' + SERIF;
+    ctx.fillText(String(item.v), 990, yy + 2);
+    ctx.textAlign = 'left';
+  });
+
+  ctx.fillStyle = 'rgba(239,231,218,.4)'; ctx.font = '400 17px ' + SANS;
+  ctx.fillText('二十一题 · 仅供娱乐 · 不作心理诊断或道德评价', 90, 1470);
+
+  return c;
+}
+
+function savePoster(){
+  try{
+    var cv = buildPoster();
+    var name = '七宗罪刻盘-' + resultName() + '.png';
+    var out = function(blob){
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = name;
+      document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 700);
+      toast('刻盘已保存到下载文件夹');
+    };
+    if(cv.toBlob) cv.toBlob(out, 'image/png');
+    else{
+      var a2 = document.createElement('a');
+      a2.href = cv.toDataURL('image/png'); a2.download = name;
+      document.body.appendChild(a2); a2.click(); a2.remove();
+      toast('刻盘已保存');
+    }
+  }catch(e){
+    toast('这张图没能导出，直接截图也一样好看');
+  }
+}
+
+function copyText(){
+  var r = RESULT;
+  var head = '我的七宗罪刻盘：' + resultName() + '\n';
+  if(r.allEqual){
+    head += '七项各 ' + r.max + '/9，无高低，全等型，浓度' + r.conc.k + '\n';
+  }else{
+    head += (r.doms.length > 1 ? '并列主导 ' : '主导 ') + r.doms.map(function(i){ return DIMS[i].n; }).join('/');
+    head += ' ' + r.max + '/9';
+    if(r.second >= 0) head += '，' + (r.secondTies.length > 1 ? '次高并列 ' : '次主导 ') + DIMS[r.second].n + ' ' + SCORES[r.second] + '/9';
+    head += '，' + r.shapeName + '，浓度' + r.conc.k + '\n';
+  }
+  var t = head + DIMS.map(function(d,i){ return d.n + SCORES[i]; }).join('  ') + '\n二十一题，三分钟，测你的刻盘长什么样。';
+  var done = function(){ toast('结果文案已复制'); };
+  var fallback = function(){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){ toast('复制失败，手动截图更快'); }
+    ta.remove();
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, fallback);
+  else fallback();
+}
+
+/* 重载时用新版逻辑重新渲染一次，避免沿用旧结果视图 */
+if(location.hash === '#result'){
+  var savedNew = readStore();
+  if(savedNew){
+    state.answers = savedNew.answers;
+    computeResult();
+    show('result');
+    renderResult();
+    animateRadar();
+  }
+}
+</script>
+</body>
+</html>
